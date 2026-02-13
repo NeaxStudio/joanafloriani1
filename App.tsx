@@ -831,12 +831,23 @@ const App: React.FC = () => {
                         role="button"
                         aria-label={`Ver imagem ampliada de ${work.title}`}
                       >
-                        <img
-                          src={work.img}
-                          alt={work.title}
-                          className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 min-h-[80px] min-w-[60px] max-h-full max-w-full aspect-square"
-                          draggable={false}
-                        />
+                        {/* Se for card de Unhas e imagem vazia ou inexistente, mostra unhas5.jpeg */}
+                        {work.category === 'Unhas' && (!work.img || work.img === '') ? (
+                          <img
+                            src="/unhas5.jpeg"
+                            alt="Unhas 5"
+                            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 min-h-[80px] min-w-[60px] max-h-full max-w-full aspect-square"
+                            draggable={false}
+                          />
+                        ) : (
+                          <img
+                            src={work.img}
+                            alt={work.title}
+                            onError={e => { if (work.category === 'Unhas') e.currentTarget.src = '/unhas5.jpeg'; }}
+                            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 min-h-[80px] min-w-[60px] max-h-full max-w-full aspect-square"
+                            draggable={false}
+                          />
+                        )}
                         <div
                           className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4 md:p-6"
                         >
