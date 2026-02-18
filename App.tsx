@@ -499,7 +499,7 @@ const TeamCard = ({ name, role, focus, image }: { name: string, role: string, fo
 const App: React.FC = () => {
     const [modalImg, setModalImg] = useState<{src: string, title: string} | null>(null);
   const [activeTab, setActiveTab] = useState('Todas');
-  const categories = ['Todas', 'Cabelos', 'Unhas', 'Estética', 'Antes e Depois', 'Noivas'];
+  const categories = ['Todas', 'Cabelos', 'Unhas', 'Estética', 'Blond Reverse', 'Noivas', 'Penteados'];
 
   // Helper para gerar título amigável
   function formatTitle(filename) {
@@ -527,32 +527,44 @@ const App: React.FC = () => {
     { category: 'Cabelos', img: '/IluminadoSoftBrown.jpeg', title: formatTitle('IluminadoSoftBrown.jpeg') },
     { category: 'Cabelos', img: '/Shortbob.jpeg', title: formatTitle('Shortbob.jpeg') },
     { category: 'Cabelos', img: '/Totalblondcorteemcamadas.jpeg', title: formatTitle('Totalblondcorteemcamadas.jpeg') },
-    { category: 'Cabelos', img: '/penteadoformanda.jpeg', title: formatTitle('penteadoformanda.jpeg') },
-    { category: 'Cabelos', img: '/penteadosocial.jpeg', title: formatTitle('penteadosocial.jpeg') },
+    { category: 'Penteados', img: '/penteadoformanda.jpeg', title: formatTitle('penteadoformanda.jpeg') },
+    { category: 'Penteados', img: '/penteadosocial.jpeg', title: formatTitle('penteadosocial.jpeg') },
+    { category: 'Penteados', img: '/penteados (1).jpeg', title: formatTitle('penteados (1).jpeg') },
+    { category: 'Penteados', img: '/penteados (2).jpeg', title: formatTitle('penteados (2).jpeg') },
+    { category: 'Penteados', img: '/penteados (3).jpeg', title: formatTitle('penteados (3).jpeg') },
+    { category: 'Penteados', img: '/penteados (4).jpeg', title: formatTitle('penteados (4).jpeg') },
+    { category: 'Penteados', img: '/penteados (5).jpeg', title: formatTitle('penteados (5).jpeg') },
+    { category: 'Penteados', img: '/penteados (6).jpeg', title: formatTitle('penteados (6).jpeg') },
     // Novos trabalhos de cabelo
     { category: 'Cabelos', img: '/corte butterfly cut (cabelo liso).jpeg', title: 'Corte Butterfly Cut (Cabelo Liso)' },
     { category: 'Cabelos', img: '/totalblond.jpeg', title: 'Total Blond' },
     { category: 'Cabelos', img: '/iluminado Golden Gold.jpeg', title: 'Iluminado Golden Gold' },
     { category: 'Cabelos', img: '/corte long bob .jpeg', title: 'Corte Long Bob' },
+    { category: 'Cabelos', img: '/Corte Channel Reto com Franja.jpeg', title: 'Corte Channel Reto com Franja' },
+    { category: 'Cabelos', img: '/Corte Butterfly Cut.jpeg', title: 'Corte Butterfly Cut' },
+    { category: 'Cabelos', img: '/Butter Shine.jpeg', title: 'Butter Shine' },
+    { category: 'Cabelos', img: '/Progressiva Organica.jpeg', title: 'Progressiva Organica' },
+    { category: 'Cabelos', img: '/Coloração Ruiva.jpeg', title: 'Coloração Ruiva' },
+    { category: 'Cabelos', img: '/corte em camada alongada.jpeg', title: 'Corte em Camada Alongada' },
 
     // Unhas (todos com o mesmo nome)
-    { category: 'Unhas', img: '/unhas.png', title: 'Esmaltação em Gel' },
+    { category: 'Unhas', img: '/unhas.png', title: 'Esmaltação Tradicional' },
     { category: 'Unhas', img: '/unhas2.png', title: 'Esmaltação em Gel' },
     { category: 'Unhas', img: '/unhas3.png', title: 'Esmaltação em Gel' },
     // Placeholders para novas imagens de Unhas
-    { category: 'Unhas', img: '/unhas4.jpeg', title: 'Esmaltação em Gel' },
-    { category: 'Unhas', img: '/unhas5.jpeg', title: 'Esmaltação em Gel' },
+    { category: 'Unhas', img: '/unhas4.jpeg', title: 'Esmaltação Tradicional' },
+    { category: 'Unhas', img: '/unhas5.jpeg', title: 'Esmaltação Tradicional' },
     { category: 'Unhas', img: '/unhas6.jpeg', title: 'Esmaltação em Gel' },
-    { category: 'Unhas', img: '/unhas7.jpeg', title: 'Esmaltação em Gel' },
+    { category: 'Unhas', img: '/unhas7.jpeg', title: 'Esmaltação Tradicional' },
     { category: 'Unhas', img: '/unhas8.jpeg', title: 'Esmaltação em Gel' },
 
     // Estética
-    { category: 'Estética', img: '/limpeza.png', title: formatTitle('limpeza.png') },
+    { category: 'Estética', img: '/limpeza.png', title: 'Limpeza de pele indolor' },
     { category: 'Estética', img: '/preenchimento.png', title: 'Preenchimento Labial' },
     { category: 'Estética', img: '/preenchimento2.jpeg', title: 'Preenchimento Labial' },
-    { category: 'Estética', img: '/botoxtesta.jpeg', title: 'Botox Testa' },
+    { category: 'Estética', img: '/botoxtesta.jpeg', title: 'Botox Glabela' },
     { category: 'Estética', img: '/botoxtesta2.jpeg', title: 'Botox Testa' },
-    { category: 'Estética', img: '/botoxtesta3.jpeg', title: 'Botox Testa' },
+    { category: 'Estética', img: '/botoxtesta3.jpeg', title: 'Botox Glabela' },
     { category: 'Estética', img: '/depilação.png', title: 'Depilação a Laser' },
     { category: 'Estética', img: '/depilação1.png', title: 'Depilação a Laser' },
     // Noivas
@@ -586,6 +598,14 @@ const App: React.FC = () => {
             className="w-full h-full object-cover bg-cover bg-center bg-no-repeat opacity-75 brightness-[0.65] scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-transparent to-black/80"></div>
+          {/* Marca d'água - Logo Waave */}
+          <img
+            src="/Logo Waave.svg"
+            alt="Marca d'água Waave"
+            className="pointer-events-none select-none absolute w-24 md:w-28 opacity-30 md:opacity-15 z-30 
+              left-1/2 top-6 -translate-x-1/2 md:left-2 md:top-auto md:bottom-2 md:translate-x-0"
+            style={{maxWidth: '38vw', minWidth: '40px'}}
+          />
         </div>
 
         <motion.div
@@ -777,7 +797,7 @@ const App: React.FC = () => {
 
           {/* Renderização condicional dos trabalhos */}
           {(() => {
-            if (activeTab === 'Antes e Depois') {
+            if (activeTab === 'Blond Reverse') {
               return (
                 <div className="flex flex-col items-center justify-center py-12 gap-12">
                   {/* Par 1 */}
@@ -816,13 +836,13 @@ const App: React.FC = () => {
                 </div>
               );
             } else {
-              // Sem animação para todas as abas exceto 'Antes e Depois'
+              // Sem animação para todas as abas exceto 'Blond Reverse'
               return (
                 <div className="flex flex-wrap justify-center gap-2 md:gap-6 min-h-[100px] bg-white py-6 overflow-visible">
                   {filteredWorks.length === 0 ? (
                     <div className="col-span-full text-center text-neutral-400 py-12 text-lg font-cinzel">Nenhum trabalho encontrado para esta categoria.</div>
                   ) : (
-                    filteredWorks.map((work) => (
+                    filteredWorks.filter(work => !(activeTab === 'Todas' && work.category === 'Penteados')).map((work) => (
                       <div
                         key={work.id}
                         className="group relative rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-700 bg-neutral-100 cursor-pointer w-[110px] h-[150px] sm:w-[160px] sm:h-[220px] md:w-[240px] md:h-[340px] lg:w-[280px] lg:h-[400px] mx-auto"
@@ -1015,7 +1035,6 @@ const App: React.FC = () => {
                   "Esmaltação em Gel & Blindagens",
                   "Spa de Pés & Plástica de Pés",
                   "Manicure & Pedicure Premium",
-                  "Alongamentos em Fibra",
                   "Alongamento em Molde F1"
                 ]}
               />
@@ -1168,13 +1187,13 @@ const App: React.FC = () => {
             <TeamCard 
               name="Joana Luiza Floriani"
               role="Hair Specialist & Bridal Artist"
-              focus="Especialista em Mechas, Iluminados, Penteados, Dia de Noiva e Designer de Sobrancelhas"
+              focus="Especialista em Mechas, Iluminados, Colorações, Cortes, Alisamentos, Penteados e dia de noiva"
               image="/joana.jpeg"
             />
             <TeamCard 
               name="Caroline Hinsching Ribeiro"
               role="Nail Design & Estética"
-              focus="Esmaltação em Gel, Blindagem, Spa de Pés e Designer de Sobrancelhas"
+              focus="Esmaltação em Gel, Blindagem, Spa de Pés, Designer de Sobrancelhas e Depilação a Laser"
               image="/caroline.jpeg"
             />
             <TeamCard 
