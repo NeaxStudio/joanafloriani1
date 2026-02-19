@@ -574,10 +574,21 @@ const App: React.FC = () => {
     { category: 'Noivas', img: '/noivas4.jpeg', title: 'Noiva' },
   ].map((w, i) => ({ ...w, id: i + 1 }));
 
+  // Fotos extras de noivas (exibidas só na aba Noivas)
+  const extraNoivas = [
+    { id: 1001, category: 'Noivas', img: '/noivas5.jpeg', title: 'Noiva' },
+    { id: 1002, category: 'Noivas', img: '/noivas6.jpeg', title: 'Noiva' },
+    { id: 1003, category: 'Noivas', img: '/noivas7.jpeg', title: 'Noiva' },
+    { id: 1004, category: 'Noivas', img: '/noivas8.jpeg', title: 'Noiva' },
+    { id: 1005, category: 'Noivas', img: '/noivas9.jpeg', title: 'Noiva' },
+  ];
+
   const filteredWorks =
     activeTab === 'Todas'
-      ? works
-      : works.filter(w => w.category === activeTab);
+      ? works.filter(w => w.category !== 'Noivas' || (w.img === '/noivas1.jpeg' || w.img === '/noivas2.jpeg' || w.img === '/noivas3.jpeg' || w.img === '/noivas4.jpeg'))
+      : activeTab === 'Noivas'
+        ? works.filter(w => w.category === 'Noivas').concat(extraNoivas)
+        : works.filter(w => w.category === activeTab);
 
   return (
     <div className="min-h-screen selection:bg-[#C48B7F] selection:text-white bg-white text-neutral-900 overflow-x-hidden">
